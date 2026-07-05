@@ -1,6 +1,6 @@
 ---
 name: finding-unknowns
-description: Guide the user through a quadrant walk that maps the unknowns of a task — open by listing the known knowns, then work through known unknowns, unknown knowns, and unknown unknowns one stage at a time, ending with a complete four-quadrant map in the user's hands. Use when a request is ambiguous or underspecified, the user asks for a blindspot pass or mentions unknown unknowns / "what am I missing / what should I be asking", the codebase or domain is unfamiliar, the user will "know it when they see it", a reference implementation must be understood before porting, mid-build deviations from the plan need capturing, a finished change needs buy-in or verified understanding before merge, or the work must hand off to a fresh session without losing what was learned.
+description: Guide the user through a quadrant walk that maps the unknowns of a task — open by listing the known knowns, then work through known unknowns, unknown knowns, and unknown unknowns one stage at a time, ending with a complete four-quadrant map in the user's hands. Use when the user explicitly asks for a blindspot pass, unknown unknowns, "what am I missing / what should I be asking", a one-question-at-a-time interview, or several directions to react to; when ambiguity or unfamiliarity is high enough that building now would likely cause rework; when a reference implementation must be understood before porting; or for a named after-walk slice — implementation notes / deviations log, a buy-in doc, a quiz gate before merge, or a session handoff (run only that slice). Do not invoke for ordinary implementation of a sufficiently specified task.
 ---
 
 <!-- Based on explore-unknowns from dzhng/skills (MIT, Copyright (c) David Zhang),
@@ -23,10 +23,13 @@ over.
 
 Two moves apply at every stage:
 
-- **Reacting beats imagining.** Never ask the user to describe what they want
-  when you can hand them something concrete to react to — a rendered option,
-  a clickable mock, a decisions table. Reacting extracts knowledge the user
-  has but cannot articulate unprompted.
+- **Reacting beats imagining — for tacit unknowns.** When the unknown is
+  taste, shape, vocabulary, or "I'll know it when I see it", never ask the
+  user to describe what they want when you can hand them something concrete
+  to react to — a rendered option, a clickable mock, a decisions table.
+  Reacting extracts knowledge the user has but cannot articulate unprompted.
+  When the unknown is a factual constraint or an architectural decision, ask
+  the highest-blast-radius question directly, with a recommendation.
 - **Every artifact assembles the reply.** End each artifact with the user's
   next message pre-drafted: steal/skip chips, resonate checkboxes, a
   decisions table, a copyable sharpened prompt — so their reaction becomes
@@ -51,8 +54,9 @@ front of you before opening the next.
    completed four-quadrant map, the walk's only done-condition.
 
 When the user moves on to build, review, merge, or hand off what the walk
-mapped, read [after the walk](references/after-the-walk.md) — the map lives
-on past planning.
+mapped — or asks for implementation notes, a buy-in doc, a quiz gate, or a
+session handoff — read [after the walk](references/after-the-walk.md): the
+map lives on past planning.
 
 **Scope:** the full walk is for a full task. When the user asks for one slice
 ("do a blindspot pass", "quiz me on this change", "write the handoff"), run
@@ -61,9 +65,10 @@ force the whole walk onto a request that named its slice.
 
 ## Rules
 
-- Walk the quadrants in order, one stage at a time, naming the current
-  quadrant. The walk ends with the map in the user's hands — no map, not
-  done.
+- For a full walk, walk the quadrants in order, one stage at a time, naming
+  the current quadrant; the walk ends with the map in the user's hands — no
+  map, not done. For a named slice, the Scope rule overrides quadrant order:
+  run only that stage or move, then stop.
 - Stages order the walk; they never embargo information. A finding that
   materially bears on a decision in flight is disclosed the moment you have
   it, then filed on the map under its quadrant — never held back for its
@@ -78,17 +83,20 @@ force the whole walk onto a request that named its slice.
   the user rule. Never silently pick one. A disclosed conflict takes the
   floor as the current question — asked alone, in the slot any other question
   would have taken, and like any question it carries your recommended answer:
-  recommending is not deciding.
+  recommending is not deciding. When several conflicts surface at once, ask
+  the highest-blast-radius one; file the rest as queued OPEN conflicts, one
+  per turn.
 - Agreement is not a deliverable. When the user's chosen direction carries a
   concrete cost, put the cost in front of them — quantified where possible —
   before walking on. The walk exists to find problems while they are cheap.
 - Claims about the territory cite real files actually read; invented data is
   labeled as such. A fabricated specific destroys the map's authority.
-- A walk that spans sessions (or grows long enough to risk a context reset)
-  keeps the map as a file, updated as each stage closes; a single-sitting
-  walk may assemble the map at hand-over. Never let a context reset eat the
-  walk. Map files, mocks, and notes live in a scratch or repo-ignored path
-  unless the user asks to commit them.
+- Start the map file at the end of stage 1 whenever the walk will span more
+  than one sitting, produce artifacts, or end in a handoff, and update it as
+  each stage closes; a short single-sitting walk may assemble the map at
+  hand-over. Never let a context reset eat the walk. Map files, mocks, and
+  notes live in a scratch or repo-ignored path unless the user asks to
+  commit them.
 - HTML artifacts are self-contained single files: inline CSS/JS, no external
   requests, plausible fake data over lorem ipsum.
 - Stop at every stage boundary that needs the user's reaction. Never barrel

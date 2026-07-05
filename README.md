@@ -45,11 +45,11 @@ Or via the [avivsinai marketplace](https://github.com/avivsinai/skills-marketpla
 
 ## Provenance
 
-A best-of-breed synthesis:
+This package combines and adapts:
 
-- Base: [explore-unknowns](https://github.com/dzhng/skills) by [David Zhang](https://github.com/dzhng) (MIT), vendored and adapted with permission of its license.
+- Base: [explore-unknowns](https://github.com/dzhng/skills) by [David Zhang](https://github.com/dzhng) (MIT), vendored and adapted under its license.
 - Process: [Thariq Shihipar](https://x.com/trq212)'s *A Field Guide to Fable: Finding Your Unknowns* (Anthropic).
-- Extensions: operating-posture rules (stop-on-conflict, no-sycophancy, evidence-backed closure) adapted from ideas in [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills) (MIT); interview unordered-sets rule and the handoff move adapted from [David Ondrej's skills](https://github.com/davidondrej/skills) (MIT).
+- Extensions: operating-posture rules (stop-on-conflict, no-sycophancy, evidence-backed closure) adapted from ideas in [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills) (MIT); interview unordered-sets rule and the handoff move adapted from ideas in [David Ondrej's skills](https://github.com/davidondrej/skills) (MIT).
 - Packaging and synthesis: [Aviv Sinai](https://github.com/avivsinai).
 
 ## License
