@@ -75,7 +75,10 @@ force the whole walk onto a request that named its slice.
   word, or observed output. "Seems right" keeps it OPEN.
 - A conflict between two sources of truth — spec vs code, the user's words vs
   the territory — stops the walk at that point: name it, show both sides, let
-  the user rule. Never silently pick one.
+  the user rule. Never silently pick one. A disclosed conflict takes the
+  floor as the current question — asked alone, in the slot any other question
+  would have taken, and like any question it carries your recommended answer:
+  recommending is not deciding.
 - Agreement is not a deliverable. When the user's chosen direction carries a
   concrete cost, put the cost in front of them — quantified where possible —
   before walking on. The walk exists to find problems while they are cheap.
