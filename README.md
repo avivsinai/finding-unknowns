@@ -1,21 +1,24 @@
 # finding-unknowns
 
-An agent skill that codifies [Thariq Shihipar's](https://x.com/trq212) process from *A Field Guide to Fable: Finding Your Unknowns* — discovering and resolving your unknowns before, during, and after implementation.
+An agent skill that maps a task's unknowns with a staged **quadrant walk** — known knowns, known unknowns, unknown knowns, unknown unknowns — ending with a four-quadrant map in your hands, then carries the map through implementation notes, buy-in docs, quiz gates, and session handoffs.
 
-> The map is not the territory. The map is your prompts and context; the territory is the codebase and the real world. The difference is your unknowns — and the quality of long-horizon agentic work is bottlenecked by your ability to clarify them.
+> The map is not the territory. The prompt, the plan, and the context window are the map; the codebase, the domain, and your actual intent are the territory. The gap between them is the unknowns — and an unknown found before code is written costs minutes, while the same unknown found three PRs later costs the three PRs.
 
 ## What it does
 
-The skill classifies your unknowns into four quadrants and routes each to the cheapest technique that converts it into a known:
+Five stages, walked in order, one at a time, each behind a progressive-disclosure reference the agent loads on entry:
 
-| Quadrant | Technique |
-|---|---|
-| Known knowns (already in your prompt) | Restate scope |
-| Known unknowns (you know the question) | **Interview** / **Reference hunt** |
-| Unknown knowns (tacit — taste, house style, "I'd recognize it if I saw it") | **Directions & prototypes** / examples to compare |
-| Unknown unknowns (unfamiliar territory) | **Blind-spot pass** |
+| Stage | Quadrant | What happens |
+|---|---|---|
+| 1 | Known knowns | Scan the territory (parallel subagents), open with the settled ground, cited |
+| 2 | Known unknowns | Interview — one question per turn, blast-radius first, each with a recommendation; brainstorm interventions; map references before porting |
+| 3 | Unknown knowns | Extract taste and tacit context via reactable artifacts: design directions, clickable mocks, vocabulary teaching, concrete samples |
+| 4 | Unknown unknowns | Sweep for landmines: evidence cards, unwritten conventions, dead prior attempts |
+| 5 | Hand over the map | The completed map artifact + a tweakable plan + a copyable implementation prompt |
 
-Then it carries the loop through implementation (**change-led plan**, `implementation-notes.md` **deviations log**) and past it (**explainer/pitch** for buy-in, **quiz gate** before merge).
+After the walk: **implementation notes** (deviations log), the **buy-in doc**, the **quiz before merge**, and the **handoff** for fresh sessions.
+
+Asked for one slice ("do a blindspot pass", "quiz me on this change")? It runs that slice and stops — no forced ceremony.
 
 ## Install
 
@@ -38,11 +41,17 @@ Or via the [avivsinai marketplace](https://github.com/avivsinai/skills-marketpla
 - "Interview me one question at a time; prioritize answers that would change the architecture."
 - "Keep an implementation-notes file; log deviations and keep going."
 - "**Quiz me** on this change — I only merge after I pass."
+- "Write the **handoff** — I'm continuing this in a fresh session tomorrow."
 
-## Credits
+## Provenance
 
-Process by [Thariq Shihipar](https://x.com/trq212) (Anthropic). Skill packaging by [Aviv Sinai](https://github.com/avivsinai).
+This package combines and adapts:
+
+- Base: [explore-unknowns](https://github.com/dzhng/skills) by [David Zhang](https://github.com/dzhng) (MIT), vendored and adapted under its license.
+- Process: [Thariq Shihipar](https://x.com/trq212)'s *A Field Guide to Fable: Finding Your Unknowns* (Anthropic).
+- Extensions: operating-posture rules (stop-on-conflict, no-sycophancy, evidence-backed closure) adapted from ideas in [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills) (MIT); interview unordered-sets rule and the handoff move adapted from ideas in [David Ondrej's skills](https://github.com/davidondrej/skills) (MIT).
+- Packaging and synthesis: [Aviv Sinai](https://github.com/avivsinai).
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE) (preserves upstream copyright).
