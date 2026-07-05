@@ -6,8 +6,9 @@ rest of the walk only spends the user's attention on what isn't.
 ## Scan first (silent)
 
 Before saying anything about the code, walk the territory. Use subagents in
-parallel — split the code the task touches among them and collect what they
-pin down — so the opening lands fast instead of after a long serial read.
+parallel when available — split the code the task touches among them and
+collect what they pin down — so the opening lands fast instead of after a
+long serial read; without subagents, parallel searches and reads do the job.
 Gather: what already exists for this task (including half-built or reverted
 prior attempts), the data shapes and conventions the code enforces, and
 anything that smells load-bearing for the request.

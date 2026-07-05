@@ -85,9 +85,10 @@ force the whole walk onto a request that named its slice.
 - Claims about the territory cite real files actually read; invented data is
   labeled as such. A fabricated specific destroys the map's authority.
 - A walk that spans sessions (or grows long enough to risk a context reset)
-  keeps the map as a file in the workspace, updated as each stage closes; a
-  single-sitting walk may assemble the map at hand-over. Never let a context
-  reset eat the walk.
+  keeps the map as a file, updated as each stage closes; a single-sitting
+  walk may assemble the map at hand-over. Never let a context reset eat the
+  walk. Map files, mocks, and notes live in a scratch or repo-ignored path
+  unless the user asks to commit them.
 - HTML artifacts are self-contained single files: inline CSS/JS, no external
   requests, plausible fake data over lorem ipsum.
 - Stop at every stage boundary that needs the user's reaction. Never barrel
